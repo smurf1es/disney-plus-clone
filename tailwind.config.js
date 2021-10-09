@@ -1,12 +1,22 @@
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        home: "url('/images/background.png')",
+      }),
+    },
+    fontFamily: {
+      montserrat: ['Montserrat', 'sans-serif'],
+    },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/line-clamp'),
+  ],
+};
